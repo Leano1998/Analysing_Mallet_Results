@@ -12,8 +12,8 @@ You might need to install the missing packages before running the script with:
 python3 -m pip install --upgrade pip
 python3 -m pip install pandas matplotlib wordcloud bs4
 ```
-Then navigate with the shell or terminal into the directory where the `topic_cloud.py` script is and run `python3
-topic_cloud.py`. After this just follow the given instructions.
+Then navigate with the shell or terminal into the directory where the `topic_cloud.py` script is and run ```python3
+topic_cloud.py```. After this just follow the given instructions.
 
 It is important to now, that this file generates the word-clouds based on the diagnostics file (mallet-parameter: 
 `diagnostics-file`) of the mallet
@@ -25,7 +25,7 @@ line 77 and following.
 
 ## Topics over time
 
-The script[`topic_over_time.py`](topic_over_time.py) can be used to visualize one ore more topics over time. Therefore,
+The script[`topic_over_time.py`](topic_over_time.py) can be used to visualize one or more topics over time. Therefore,
 the document names must include some kind of time-information. this can either be a two-digit volume-number or a
 four-digit year number. 
 
@@ -35,9 +35,26 @@ other libraries, might still have to be installed.
 python3 -m pip install --upgrade pip
 python3 -m pip install pandas matplotlib seaborn
 ```
-You can run the script the same way as topic_cloud.py, by typing `python3 topic_cloud.py` (you must be in the same
+You can run the script the same way as topic_cloud.py, by typing ```python3 topic_cloud.py``` (you must be in the same
 directory with your shell or terminal).
 
 The script `topic_over_time.py` uses the doc-topic-distribution file of mallet, which can be exported by including the
 parameter `output-doc-topics` followed by a file-name into the mallet call. You'll need enter the full path to this file
 (so it'll be easier, if it's in the same directory.)
+
+## Topic correlation over time
+
+Sometimes it can be usefully to determine, in which way certain topics correlate in their importance over time or even
+just to now, if they are some topics which correlate with each-other. To determine this, the script
+[`topic_correlation.py`](topic_correlation.py) plots all topic-correlations into a heatmap. After that it offers the
+possibility to visualize the correlation between pairs of topic, the user might find interesting. 
+As the script above (topic_over_time.py) it uses the doc-topic-distribution file from mallet, which should therefore be
+created during the topic-modelling. 
+
+Furthermore, it uses the python libraries `numpy`, `pandas`, `matplotlib`, `seaborn` and `re`. The can install them by:
+```
+python3 -m pip install --upgrade pip
+python3 -m pip install numpy pandas matplotlib seaborn
+```
+You can run the script by typing ``` python3 topic_correlation.py ```. Concerning the time-information please check the
+note to the topic_over_time script.
