@@ -58,3 +58,22 @@ python3 -m pip install numpy pandas matplotlib seaborn
 ```
 You can run the script by typing ``` python3 topic_correlation.py ```. Concerning the time-information please check the
 note to the topic_over_time script.
+
+This script is still under development, but can already be used. Only the plot between pairs of topics might sometimes
+still look a bit odd.
+
+## Further Information
+I wrote these script for our own topic-modelling project and thought the might be usefull to others. But it can be
+possible, that they'd need further customization. If you find errors, or you have ideas for further generalization,
+don't hesitate to contact me or to create an Issue.  
+
+The scripts using the doc-topic-distribution file, can be further customized by changing the RegEx pattern to determine
+the volumen number of the file name. You can adjust the therefore used variable `vol_pattern`:
+```
+##############################################
+
+vol_pattern = r'[0-9][0-9]'
+"""
+    The pattern to determine the volume of a document.
+"""
+```

@@ -27,7 +27,7 @@ df.columns = ['id', 'dokument'] + ['Topic %s' % i for i in range(n_topics)]
 # Extracting the information about the years.#
 ##############################################
 
-vol_pattern = r'[0-9][0-9]?'
+vol_pattern = r'[0-9][0-9]'
 """
     The pattern to determine the volume of a document.
 """

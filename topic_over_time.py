@@ -24,6 +24,11 @@ df.columns = ['id', 'dokument'] + ['Topic %s' % i for i in range(n_topics)]
 # Extracting the information about the years.#
 ##############################################
 
+vol_pattern = r'[0-9][0-9]'
+"""
+    The pattern to determine the volume of a document.
+"""
+
 print('For a correct display of the year-distribution, the time-information must exist in the documents names. This can'
       ' either be through volumen numbers in the format NN (01, 02, ..., 12, ...) or in form of clear year information.'
       ' The second options more stable. The algorithm is looking for 4-digit numbers in the document names.\n')
@@ -52,7 +57,7 @@ years = []
 if time_form == 'vol':
     for d in df["dokument"]:
         try:
-            volume = int(re.findall(r'[0-9][0-9]', d)[0])
+            volume = int(re.findall(vol_pattern, d)[0])
         except IndexError:
             print('\n\tCouldn\'t parse document-name: "%s".\n' % d)
             sys.exit("Please check %s file for wrong document names." % name)
